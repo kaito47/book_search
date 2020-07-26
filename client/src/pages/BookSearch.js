@@ -66,9 +66,12 @@ export default function BookSearch() {
       <SearchBar />
 
       {/* NEED TO ADD THE RESULTS CONTAINER HERE (uses Book component) */}
-      <Grid item={8}>
-        <h5>Results</h5>
-      </Grid>
+      <div>
+        <Grid item={8}>
+          <h5>Results</h5>
+        </Grid>
+      </div>
+      <Book />
       <Box mt={5}>
         <Copyright />
       </Box>
