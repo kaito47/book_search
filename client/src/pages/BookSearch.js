@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Nav from '../components/Nav';
 import Book from '../components/Book';
+import SearchBar from '../components/SearchBar';
 
 function Copyright() {
   return (
@@ -27,6 +28,10 @@ function Copyright() {
     </Typography>
   );
 }
+
+// Function to display the Book results vs "Start your search to begin" message
+
+
 
 const sections = [
   { title: 'Book Search', url: '#' },
@@ -57,52 +62,18 @@ export default function BookSearch() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <LocalLibraryIcon />
-        <Typography component="h1" variant="h5">
-          Book Search
-        </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="title"
-                label="Enter Book Title Here"
-                name="title"
-                autoComplete="title"
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Search
-          </Button>
-          {/* <Grid container justify="flex-end">
-                        <Grid item>
-                            <Link href="#" variant="body2">
-                                Already have an account? Sign in
-              </Link>
-                        </Grid>
-                    </Grid> */}
-        </form>
-        <Book />
-      </div>
-      {/* NEED TO ADD THE RESULTS CONTAINER HERE (uses Book component) */}
+    <Container component="main" maxWidth="lg">
+      <SearchBar />
 
+      {/* NEED TO ADD THE RESULTS CONTAINER HERE (uses Book component) */}
+      <Grid item={8}>
+        <h5>Results</h5>
+      </Grid>
       <Box mt={5}>
         <Copyright />
       </Box>
-    </Container>
+    </Container >
+
   );
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
-import Box from '@material-ui/core/Box';
-import './style.css';
+import Container from '@material-ui/core/Container';
+
 
 export default function Book() {
     return (
-        <Box>
+        <Container maxWidth="lg">
             <h5>Results</h5>
-        </Box>
+        </Container>
     );
 }
