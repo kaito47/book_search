@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Search from "./pages/BookSearch";
-import Saved from "./pages/SavedBooks";
+import SavedBooks from "./pages/SavedBooks";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
@@ -14,8 +14,8 @@ function App() {
           <Route exact path={["/", "/books"]}>
             <Search />
           </Route>
-          <Route exact path="/books/:id">
-            <Saved />
+          <Route exact path="/saved">
+            <SavedBooks />
           </Route>
           <Route>
             <NoMatch />

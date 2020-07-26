@@ -31,13 +31,6 @@ function Copyright() {
 
 // Function to display the Book results vs "Start your search to begin" message
 
-
-
-const sections = [
-  { title: 'Book Search', url: '#' },
-  { title: 'Saved Books', url: '/saved' },
-];
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -71,6 +64,7 @@ export default function BookSearch() {
           <h5>Results</h5>
         </Grid>
       </div>
+      {/* ADD THE FUNCTION TO THE BOOK BUTTON TO ONLY SHOW ON CLICK/ON SEARCH/ON GET REQUEST COMPLETION */}
       <Book />
       <Box mt={5}>
         <Copyright />

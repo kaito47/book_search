@@ -50,7 +50,7 @@ export default function Nav() {
             Book Search & Save
           </Typography>
           <nav>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+            <Link variant="button" color="textPrimary" href="/" className={classes.link}>
               Search
             </Link>
             <Link variant="button" color="textPrimary" href="/saved" className={classes.link}>
