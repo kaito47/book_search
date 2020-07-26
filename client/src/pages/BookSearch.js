@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Nav from '../components/Nav';
+import Book from '../components/Book';
 
 function Copyright() {
   return (
@@ -94,7 +95,10 @@ export default function BookSearch() {
                         </Grid>
                     </Grid> */}
         </form>
+        <Book />
       </div>
+      {/* NEED TO ADD THE RESULTS CONTAINER HERE (uses Book component) */}
+
       <Box mt={5}>
         <Copyright />
       </Box>
