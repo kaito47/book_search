@@ -16,6 +16,8 @@ import Nav from '../components/Nav';
 import Book from '../components/Book';
 import SearchBar from '../components/SearchBar';
 
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -65,7 +67,9 @@ export default function BookSearch() {
         </Grid>
       </div>
       {/* ADD THE FUNCTION TO THE BOOK BUTTON TO ONLY SHOW ON CLICK/ON SEARCH/ON GET REQUEST COMPLETION */}
-      <Book />
+      <Book>
+
+      </Book>
       <Box mt={5}>
         <Copyright />
       </Box>

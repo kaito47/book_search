@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,6 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Nav from './Nav';
 import Book from './Book';
+import API from '../utils/API';
+
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -37,6 +39,45 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchBar() {
     const classes = useStyles();
+    // Setting our component's initial state
+    const [books, setBooks] = useState([])
+    const [formObject, setFormObject] = useState({})
+
+    // Load all books and store them with setBooks
+    useEffect(() => {
+        loadBooks()
+    }, [])
+
+    // Loads all books and sets them to books
+    function loadBooks() {
+        API.getBooks()
+            .then(res =>
+                setBooks(res.data)
+            )
+            .catch(err => console.log(err));
+    };
+
+    // Handles updating component state when the user types into the input field
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({ ...formObject, [name]: value })
+    };
+
+    // When the form is submitted, use the API.saveBook method to save the book data
+    // Then reload books from the database
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        if (formObject.title && formObject.author) {
+            API.saveBook({
+                title: formObject.title,
+                author: formObject.author,
+                synopsis: formObject.synopsis
+            })
+                .then(res => loadBooks())
+                .catch(err => console.log(err));
+        }
+    };
+
 
     return (
         <Container component="main" maxWidth="xs">
@@ -66,6 +107,7 @@ export default function SearchBar() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        onClick={handleFormSubmit}
                     >
                         Search
           </Button>

@@ -28,8 +28,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Book() {
+export default function Book(props) {
     const classes = useStyles();
+
 
     return (
         <div className={classes.root}>
@@ -60,7 +61,9 @@ export default function Book() {
                             </Grid>
                         </Grid>
                         <Grid item>
-                            <Button className="SaveButton">Save</Button>
+                            <Button className="SaveButton"
+                            >Save
+                            </Button>
                             <Button>View in Google Books</Button>
                         </Grid>
                     </Grid>

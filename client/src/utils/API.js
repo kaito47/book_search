@@ -1,6 +1,11 @@
 import axios from "axios";
 
 export default {
+
+  // Google Books API Call
+  googleBooks: function (query) {
+    return axios.get('www.googleapis.com/books/v1/volumes?q=${query}').then(res => { return res.data })
+  },
   // Gets all books
   getBooks: function () {
     return axios.get("/api/books");
@@ -14,3 +19,6 @@ export default {
     return axios.post("/api/saved", bookData);
   }
 };
+
+
+
