@@ -44,18 +44,18 @@ export default function SearchBar() {
     const [formObject, setFormObject] = useState({})
 
     // Load all books and store them with setBooks
-    useEffect(() => {
-        loadBooks()
-    }, [])
+    // useEffect(() => {
+    //     loadBooks()
+    // }, [])
 
     // Loads all books and sets them to books
-    function loadBooks() {
-        API.getBooks()
-            .then(res =>
-                setBooks(res.data)
-            )
-            .catch(err => console.log(err));
-    };
+    // function loadBooks() {
+    //     API.getBooks()
+    //         .then(res =>
+    //             console.log(setBooks(res.data))
+    //         )
+    //         .catch(err => console.log(err));
+    // };
 
     // Handles updating component state when the user types into the input field
     function handleInputChange(event) {
@@ -67,13 +67,9 @@ export default function SearchBar() {
     // Then reload books from the database
     function handleFormSubmit(event) {
         event.preventDefault();
-        if (formObject.title && formObject.author) {
-            API.saveBook({
-                title: formObject.title,
-                author: formObject.author,
-                synopsis: formObject.synopsis
-            })
-                .then(res => loadBooks())
+        if (books.query) {
+            API.googleBooks(books.query).then(res => { setBooks(res.items) })
+                .then(setFormObject())
                 .catch(err => console.log(err));
         }
     };
@@ -98,6 +94,7 @@ export default function SearchBar() {
                                 label="Enter Book Title Here"
                                 name="title"
                                 autoComplete="title"
+                                onChange={handleInputChange}
                             />
                         </Grid>
                     </Grid>

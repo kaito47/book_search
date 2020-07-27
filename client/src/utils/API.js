@@ -4,7 +4,7 @@ export default {
 
   // Google Books API Call
   googleBooks: function (query) {
-    return axios.get('www.googleapis.com/books/v1/volumes?q=${query}').then(res => { return res.data })
+    return axios.get('www.googleapis.com/books/v1/volumes?q=' + query).then(res => { return res.data })
   },
   // Gets all books
   getBooks: function () {
