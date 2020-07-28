@@ -67,8 +67,9 @@ export default function SearchBar() {
     // Then reload books from the database
     function handleFormSubmit(event) {
         event.preventDefault();
-        if (books.query) {
-            API.googleBooks(books.query).then(res => { setBooks(res.items) })
+        if (formObject.query) {
+            console.log(formObject.query)
+            API.googleBooks(formObject.query).then(res => { setBooks(res.items) })
                 .then(setFormObject())
                 .catch(err => console.log(err));
         }
